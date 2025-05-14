@@ -11,7 +11,7 @@ float zoff = 0.0;
 float zincrement = 0.02; 
 
 //////////////////////////////////////////////////////////////////////////////////////
-void setup() {   
+void setupMain() {   
   size(400, 400);   
   frameRate(30);
   smooth();   
@@ -48,13 +48,17 @@ void draw() {
       yoff += increment; // Increment yoff
       
       // Calculate noise and scale by 255
-      float bright = noise(xoff,yoff,zoff)*255;
+      //float bright = noise(xoff,yoff,zoff)*255;
 
       // Try using this line instead
       //float bright = random(0,255);
       
       // Set each pixel onscreen to a grayscale value
-      pixels[x+y*width] = color(bright,bright,bright);
+      //pixels[x+y*width] = color(bright,bright,bright);      
+      float n = noise(xoff, yoff, zoff);  // Get noise value between 0–1
+      float hue = n * (millis() * 0.05f) % 255;                // Map to hue
+      pixels[x + y * width] = color(hue, 200, 255);  // Vibrant color
+
     }
   }
   updatePixels();

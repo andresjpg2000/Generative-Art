@@ -1,5 +1,12 @@
+import processing.sound.*;
+
+SoundFile player;
+
 void setup() {
   size(1200, 600,P2D);
+  
+  player = new SoundFile(this, "groove.mp3");
+  player.stop();
   
   setupTR1();
   setupMain();
@@ -16,7 +23,7 @@ void draw() {
 }
 
 void keyPressed() {
-
+  if (key == ENTER) player.play();
   if (key == '1') showTR1 = !showTR1;
   if (key == '2') showMain = !showMain;
   

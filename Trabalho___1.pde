@@ -1,10 +1,5 @@
 // File: SoundControlledNota.pde
 
-import processing.sound.*;
-
-PGraphics pg;
-
-SoundFile player;
 Amplitude amplitude;
 float intensity, smoothingFactor, smoothedIntensity, amplifyValue;
 
@@ -17,9 +12,6 @@ boolean showTR1;
 
 void setupTR1() {
   rectMode(CENTER);
-
-  player = new SoundFile(this, "groove.mp3");
-  player.loop();
 
   amplitude = new Amplitude(this);
   amplitude.input(player);
@@ -38,23 +30,10 @@ void setupTR1() {
   nota = loadShape("nota.svg");
   
   showTR1 = false;
-  
-  pg = createGraphics(width, height, P2D);
-  pg.beginDraw();
-  //pg.clear(); // torna o fundo transparente
-  pg.background(random(255),random(255),random(255));
-
-  pg.endDraw();
 }
 
 void drawTR1() {
-  
-  pg.beginDraw();
-  //pg.clear(); // limpa com fundo transparente
-  pg.background(random(255), random(255), random(255)); 
-  pg.endDraw();
-
-  
+ 
   intensity = amplitude.analyze();
   intensity = amplifyValue * intensity;
   smoothedIntensity = (1.0 - smoothingFactor) * smoothedIntensity + smoothingFactor * intensity;

@@ -1,5 +1,5 @@
 void setup() {
-  size(400, 400,P2D);
+  size(1200, 600,P2D);
   
   setupTR1();
   setupMain();

@@ -9,8 +9,9 @@ void setup() {
 
 void draw() {
   background(255);
-  if(showTR1 == true) drawTR1();
   if(showMain == true) drawMain();
+  if(showTR1 == true) drawTR1();
+
   //if(showSun == true) drawSun();
 }
 

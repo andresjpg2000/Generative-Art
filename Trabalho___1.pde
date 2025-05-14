@@ -11,8 +11,9 @@ color c1, c2, c3;
 int numerDeLinhas, numeroDeRetangulos;
 PShape nota;
 
-void setup() {
-  size(800, 450, P2D);
+boolean showTR1;
+
+void setupTR1() {
   smooth(8);
   rectMode(CENTER);
 
@@ -34,9 +35,11 @@ void setup() {
   raioInterior = 270;
   espacoEntreRetangulos = 300;
   nota = loadShape("nota.svg");
+  
+  showTR1 = false;
 }
 
-void draw() {
+void drawTR1() {
   background(255);
 
   intensity = amplitude.analyze();

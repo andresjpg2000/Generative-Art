@@ -9,14 +9,14 @@ void setup() {
   player.stop();
   
   setupTR1();
-  setupMain();
+  setupBGlive();
   frameRate(25);
   smooth();
 }
 
 void draw() {
   background(255);
-  if(showMain == true) drawMain();
+  if(showBGlive == true) drawBGlive();
   if(showTR1 == true) drawTR1();
 
   //if(showSun == true) drawSun();
@@ -25,6 +25,6 @@ void draw() {
 void keyPressed() {
   if (key == ENTER) player.play();
   if (key == '1') showTR1 = !showTR1;
-  if (key == '2') showMain = !showMain;
+  if (key == '2') showBGlive = !showBGlive;
   
 }

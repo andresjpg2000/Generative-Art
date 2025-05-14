@@ -79,9 +79,9 @@ class myObject {
     yPos = y;
   }
 
-  void drawIt() {
+  void drawIt(PGraphics pg) {
     effect.apply(this); // atualizar visualDiameter e visualColor
-    fill(visualColor);
-    ellipse(xPos, yPos, visualDiameter, visualDiameter);
+    pg.fill(visualColor);
+    pg.ellipse(xPos, yPos, visualDiameter, visualDiameter);
   }
 }

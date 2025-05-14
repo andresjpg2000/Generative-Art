@@ -10,7 +10,15 @@ PShape nota;
 
 boolean showTR1;
 
+PGraphics TR1Layer;
+
+
 void setupTR1() {
+  TR1Layer = createGraphics(width, height);
+  TR1Layer.beginDraw();
+  TR1Layer.background(0, 255, 255, 0);
+  TR1Layer.endDraw();
+
   rectMode(CENTER);
 
   amplitude = new Amplitude(this);
@@ -28,12 +36,15 @@ void setupTR1() {
   raioInterior = 270;
   espacoEntreRetangulos = 300;
   nota = loadShape("nota.svg");
-  
+
   showTR1 = false;
 }
 
 void drawTR1() {
- 
+  TR1Layer.beginDraw();
+  TR1Layer.background(0, 255, 255, 0);
+  TR1Layer.noStroke();
+  TR1Layer.endDraw();
   intensity = amplitude.analyze();
   intensity = amplifyValue * intensity;
   smoothedIntensity = (1.0 - smoothingFactor) * smoothedIntensity + smoothingFactor * intensity;
@@ -71,8 +82,8 @@ void drawTR1() {
       rotate(radians(90));
 
       c3 = lerpColor(c1, c2, map(i, 0, numeroDeRetangulos, 0.0, 1.0));
-      fill(c3, 192);
-      noStroke();
+      TR1Layer.fill(c3, 192);
+      TR1Layer.noStroke();
       shape(nota, 0, 0);
 
       popMatrix();
@@ -81,4 +92,7 @@ void drawTR1() {
     popMatrix();
   }
   popMatrix();
+  TR1Layer.endDraw();
+
+  image(TR1Layer, 0, 0);
 }

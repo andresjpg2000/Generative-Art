@@ -1,6 +1,7 @@
 // Exemplo_089_4 
 
 // Declaração de variável int e de Arraylist
+boolean showMain;
 int numeroDeObjectos; 
 ArrayList <myObject> objsList;
 
@@ -11,10 +12,7 @@ float zoff = 0.0;
 float zincrement = 0.02; 
 
 //////////////////////////////////////////////////////////////////////////////////////
-void setup() {   
-  size(400, 400);   
-  frameRate(30);
-  smooth();   
+void setupMain() {
   noStroke();   
   background(235, 235, 235);
   // Iniciação da variável int e da Arraylist 
@@ -28,10 +26,12 @@ void setup() {
     // Para adicionar um elemento no final da lista   
     objsList.add(obj);
   }
+  
+  showMain = false;
 }
 
 //////////////////////////////////////////////////////////////////////////////////////
-void draw() {
+void drawMain() {
   
   // Optional: adjust noise detail here
   // noiseDetail(8,0.65f);
@@ -83,6 +83,16 @@ void draw() {
   } // Aqui termina o ciclo for
   fill(235, 235, 235, 31);  
   rect(0, 0, width, height);
+  
+    if (keyPressed == true) {
+      if (key == '+') {
+        myObject b = new myObject();
+        objsList.add(b);
+      }
+      if (key == '-' && objsList.size() > 0) {
+        objsList.remove( int(random(objsList.size())));
+      }
+    }
 }
 
 /////////////////////////////////////////////////////////
@@ -96,14 +106,3 @@ void mousePressed() {
   // O objecto obj é adicionado na ArrayList objsList
   objsList.add(obj);
 } 
-
-/////////////////////////////////////////////////////////
-void keyPressed() {
-  if (key == '+') {
-    myObject b = new myObject();
-    objsList.add(b);
-  }
-  if (key == '-' && objsList.size() > 0) {
-    objsList.remove( int(random(objsList.size())));
-  }
-}  

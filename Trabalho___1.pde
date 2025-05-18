@@ -16,7 +16,7 @@ void setupTR1() {
 
   rectMode(CENTER);
 
-  
+
 
   // Cores
   c1 = color(64, 0, 32);

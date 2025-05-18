@@ -61,8 +61,8 @@ void drawTR2() {
     if (diametro < width && ativo_agora) {
 
       TR2Layer.noFill();
-      TR2Layer.stroke(25, 70, 210, 0.5 * random(255));
-      TR2Layer.strokeWeight( 0.05 * random(127, 255));
+      TR2Layer.stroke(25, 70, 210, 0.5 * random(50,255));
+      TR2Layer.strokeWeight( 0.05 * random(0, 255));
       TR2Layer.ellipse(centro.x, centro.y, diametro, diametro);
      
     }

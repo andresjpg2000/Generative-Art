@@ -10,6 +10,8 @@ float intensity, smoothingFactor, smoothedIntensity, amplifyValue;
 float rotacao, raioInterior, anguloEntreLinhas, espacoEntreRetangulos;
 float limiar;
 
+float fadeTR1 = 0, fadeTR2 = 0, fadeTR3 = 0, fadeBG = 0;
+float fadeSpeed = 20;
 
 void setup() {
   size(1200, 600,P2D);

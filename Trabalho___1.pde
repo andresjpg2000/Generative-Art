@@ -1,9 +1,5 @@
-// File: SoundControlledNota.pde
+import processing.sound.*;
 
-Amplitude amplitude;
-float intensity, smoothingFactor, smoothedIntensity, amplifyValue;
-
-float rotacao, raioInterior, anguloEntreLinhas, espacoEntreRetangulos;
 color c1, c2, c3;
 int numerDeLinhas, numeroDeRetangulos;
 PShape nota;
@@ -17,14 +13,10 @@ void setupTR1() {
   TR1Layer = createGraphics(width, height);
   TR1Layer.beginDraw();
   TR1Layer.background(0, 255, 255, 0);
-  TR1Layer.endDraw();
 
   rectMode(CENTER);
 
-  amplitude = new Amplitude(this);
-  amplitude.input(player);
-  amplifyValue = 2.0;
-  smoothingFactor = 0.5;
+  
 
   // Cores
   c1 = color(64, 0, 32);
@@ -36,6 +28,7 @@ void setupTR1() {
   raioInterior = 270;
   espacoEntreRetangulos = 300;
   nota = loadShape("nota.svg");
+  TR1Layer.endDraw();
 
   showTR1 = false;
 }
@@ -45,9 +38,6 @@ void drawTR1() {
   TR1Layer.background(0, 255, 255, 0);
   TR1Layer.noStroke();
   TR1Layer.endDraw();
-  intensity = amplitude.analyze();
-  intensity = amplifyValue * intensity;
-  smoothedIntensity = (1.0 - smoothingFactor) * smoothedIntensity + smoothingFactor * intensity;
 
   // Controle com som
   rotacao = rotacao - smoothedIntensity * 10;

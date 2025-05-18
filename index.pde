@@ -20,8 +20,6 @@ void setup() {
   smooth();
   noiseDetail(4);
 
-
-  
   player = new SoundFile(this, "groove.mp3");
   fft = new FFT(this, bandas);
   fft.input(player);
@@ -39,6 +37,8 @@ void setup() {
   setupTR2();
   setupTR3();
   setupBGlive();
+  setupCube();
+  setupSpiral();
 }
 
 void draw() {
@@ -52,6 +52,8 @@ void draw() {
   if(showTR1 == true) drawTR1();
   if(showTR2 == true) drawTR2();
   if(showTR3 == true) drawTR3();
+  if(showCube == true) drawCube();
+  if(showSpiral == true) drawSpiral();
 
   //if(showSun == true) drawSun();
 }
@@ -62,4 +64,6 @@ void keyPressed() {
   if (key == '2') showTR2 = !showTR2;
   if (key == '3') showTR3 = !showTR3;
   if (key == '4') showBGlive = !showBGlive;
+  if (key == '5') showCube = !showCube;
+  if (key == '6') showSpiral = !showSpiral;
 }

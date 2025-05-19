@@ -7,7 +7,7 @@ float anguloEntreLinha2, rotAtual, rotVel;
 
 boolean ativo_agora = false;
 boolean ativo_antes = false;
-float diametro = 30;
+float diametro = 25;
 int bandas = 64;
 
 ArrayList<PVector> solCentros;

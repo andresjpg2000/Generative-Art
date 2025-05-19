@@ -30,7 +30,7 @@ void setup() {
   beatDetector = new BeatDetector(this);
   beatDetector.input(player);
   
-  amplifyValue = 2.0;
+  amplifyValue = 1.0;
   smoothingFactor = 0.5;
   
   setupTR1();
@@ -42,8 +42,8 @@ void setup() {
 }
 
 void draw() {
-  background(255);
-  
+  background(230,230,255);
+ 
   intensity = amplitude.analyze();
   intensity = amplifyValue * intensity;
   smoothedIntensity = (1.0 - smoothingFactor) * smoothedIntensity + smoothingFactor * intensity;

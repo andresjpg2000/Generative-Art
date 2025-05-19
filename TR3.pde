@@ -1,5 +1,5 @@
 
-boolean mode = true;
+boolean mode = false;
 int numDeTiras, numSeccoesPorTira;
 float escala, raioA, raioB, raioMin, raioMax;
 float vxA, vyA, vzA, vxB, vyB, vzB, offSetZ, velZ;

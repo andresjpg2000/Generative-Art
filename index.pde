@@ -20,7 +20,7 @@ void setup() {
   smooth();
   noiseDetail(4);
 
-  player = new SoundFile(this, "groove.mp3");
+  player = new SoundFile(this, "music.mp3");
   fft = new FFT(this, bandas);
   fft.input(player);
   
@@ -48,12 +48,12 @@ void draw() {
   intensity = amplifyValue * intensity;
   smoothedIntensity = (1.0 - smoothingFactor) * smoothedIntensity + smoothingFactor * intensity;
   
+  if(showSpiral == true) drawSpiral();
   if(showBGlive == true) drawBGlive();
   if(showTR1 == true) drawTR1();
   if(showTR2 == true) drawTR2();
   if(showTR3 == true) drawTR3();
   if(showCube == true) drawCube();
-  if(showSpiral == true) drawSpiral();
 
   //if(showSun == true) drawSun();
 }

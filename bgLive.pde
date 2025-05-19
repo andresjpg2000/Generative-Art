@@ -85,16 +85,4 @@ void drawBGlive() {
     image(LayerBGlive, 0, 0);
   }
 }
-
-
-/////////////////////////////////////////////////////////
-void mousePressed() {
-  // Declaração e iniciação do elemento 
-  // com nome obj do tipo myObject 
-  myObject obj = new myObject();
-  // Função da classe myObject que altera a 
-  // posição do objecto
-  obj.setPos( mouseX, mouseY);
-  // O objecto obj é adicionado na ArrayList objsList
-  objsList.add(obj);
-} 
+ 

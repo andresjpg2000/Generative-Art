@@ -1,5 +1,3 @@
-// Exemplo_089_4 
-
 // Declaração de variável int e de Arraylist
 boolean showBGlive;
 int numeroDeObjectos; 

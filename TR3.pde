@@ -7,8 +7,10 @@ float raioNoise, distNoiseAB, valorNoiseA, valorNoiseB;
 float nxA, nyA, nzA, nxB, nyB, nzB, offSetNZ;
 float morphAmount = 0;
 
-ArrayList<PVector> squares = new ArrayList<PVector>();
-ArrayList<Integer> squareColors = new ArrayList<Integer>();
+//ArrayList<PVector> squares = new ArrayList<PVector>();
+//ArrayList<Integer> squareColors = new ArrayList<Integer>();
+
+ArrayList<RotatingCube> cubes = new ArrayList<RotatingCube>();
 
 boolean showTR3;
 
@@ -40,15 +42,16 @@ void setupTR3() {
 void drawTR3() {
   TR3Layer.beginDraw();
   TR3Layer.background(0, 19, 138);
-
   beatDetector.sensitivity(1000);
 
   if (beatDetector.isBeat()) {
     float x = random(-200, 200);
     float y = random(-150, 150);
     float z = -random(1000, 5000);
-    squares.add(new PVector(x, y, z));
-    squareColors.add(color(random(100), random(127), 255, random(255)));
+    //squares.add(new PVector(x, y, z));
+    //squareColors.add(color(random(100), random(127), 255, random(255)));
+    color c = color(random(100), random(127), 255, 255);
+    cubes.add(new RotatingCube(new PVector(x, y, z), c, 40, random(1000)));
   }
 
   if (mode == true) {
@@ -111,18 +114,25 @@ void drawTR3() {
     TR3Layer.endShape();
   }
 
-  for (int i = 0; i < squares.size(); i++) {
-    PVector s = squares.get(i);
-    s.z += velZ;
-    TR3Layer.pushMatrix();
-    TR3Layer.translate(s.x, s.y, s.z);
-    TR3Layer.fill(squareColors.get(i));
-    TR3Layer.noStroke();
-    TR3Layer.rectMode(CENTER);
-    TR3Layer.rect(0, 0, 40, 40);
-    TR3Layer.popMatrix();
-    TR3Layer.noFill();
+  //for (int i = 0; i < squares.size(); i++) {
+  //  PVector s = squares.get(i);
+  //  s.z += velZ;
+  //  TR3Layer.pushMatrix();
+  //  TR3Layer.translate(s.x, s.y, s.z);
+  //  TR3Layer.fill(squareColors.get(i));
+  //  TR3Layer.noStroke();
+  //  TR3Layer.rectMode(CENTER);
+  //  TR3Layer.rect(0, 0, 40, 40);
+  //  TR3Layer.popMatrix();
+  //  TR3Layer.noFill();
+  //}
+  
+  for (int i = 0; i < cubes.size(); i++) {
+    RotatingCube c = cubes.get(i);
+    c.update(velZ);
+    c.render(TR3Layer, i * 10);
   }
+
 
   offSetZ += velZ;
   while (offSetZ > escala * distNoiseAB) {

@@ -14,12 +14,12 @@ float fadeTR1 = 0, fadeTR2 = 0, fadeTR3 = 0, fadeBG = 0;
 float fadeSpeed = 20;
 
 void setup() {
-  size(1200, 600,P2D);
+  size(1280, 720,P2D);
   noCursor();
   frameRate(25);
   smooth();
   noiseDetail(4);
-
+  
   player = new SoundFile(this, "music.mp3");
   fft = new FFT(this, bandas);
   fft.input(player);
@@ -56,6 +56,9 @@ void draw() {
   if(showCube == true) drawCube();
 
   //if(showSun == true) drawSun();
+  
+  // Salva cada frame como imagem PNG
+  saveFrame("frames/frame-####.png");
 }
 
 void keyPressed() {

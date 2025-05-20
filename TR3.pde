@@ -39,7 +39,7 @@ void setupTR3() {
 void drawTR3() {
   TR3Layer.beginDraw();
   TR3Layer.background(0, 19, 138);
-  beatDetector.sensitivity(1000);
+  beatDetector.sensitivity(450);
 
   if (beatDetector.isBeat()) {
     float x = random(-200, 200);
